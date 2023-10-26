@@ -39,8 +39,11 @@ aa = json_stringify(arr, true)
 Socket = network_create_socket(network_socket_wss)
 isConnected = network_connect_raw(Socket, server, port)
 var buffer = buffer_create(string_byte_length(aa), buffer_fixed,1)
-buffer_write(buffer,buffer_string,aa)
 buffer_seek(buffer, buffer_seek_start, 0)
+buffer_write(buffer,buffer_string,aa)
+
+ab = buffer_read(buffer, buffer_string)
+ap_show_debug_message("buffer output : " + ab)
 network_send_raw(Socket, buffer, buffer_get_size(buffer),network_send_text)
 
 ap_show_debug_message("json string: " + string(aa))
