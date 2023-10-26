@@ -3,10 +3,6 @@ var slotName = "checksfinder"
 var server = "archipelago.gg"
 var port = 62399
 
-
-var _contents = {
-	
-}
 var connect_map = ds_map_create()
 var version_map = ds_map_create()
 ds_map_add(version_map, "major", int64(0))
@@ -21,7 +17,7 @@ ds_map_add(connect_map, "uuid", int64(999999))
 ds_map_add_map(connect_map, "version", version_map)
 ds_map_add(connect_map, "items_handling", int64(3))
 ds_map_add(connect_map, "tags", [])
-aa = json_stringify(_contents)
+aa = json_encode(connect_map)
 Socket = network_create_socket(network_socket_wss)
 isConnected = network_connect_raw(Socket, server, port)
 var buffer = buffer_create(string_byte_length(connect_map), buffer_fixed,1)
