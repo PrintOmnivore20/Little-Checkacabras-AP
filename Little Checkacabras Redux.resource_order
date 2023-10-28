@@ -21,7 +21,11 @@
     {"name":"rm_debug","order":3,"path":"rooms/rm_debug/rm_debug.yy",},
     {"name":"rm_main","order":1,"path":"rooms/rm_main/rm_main.yy",},
     {"name":"obj_networking","order":1,"path":"objects/obj_networking/obj_networking.yy",},
+    {"name":"spr_sendcheck_button","order":2,"path":"sprites/spr_sendcheck_button/spr_sendcheck_button.yy",},
+    {"name":"spr_receiveitem_button","order":3,"path":"sprites/spr_receiveitem_button/spr_receiveitem_button.yy",},
+    {"name":"obj_sendcheck_button","order":3,"path":"objects/obj_sendcheck_button/obj_sendcheck_button.yy",},
     {"name":"obj_connect_button","order":2,"path":"objects/obj_connect_button/obj_connect_button.yy",},
     {"name":"spr_archipelago","order":1,"path":"sprites/spr_archipelago/spr_archipelago.yy",},
+    {"name":"obj_receiveitem_button","order":4,"path":"objects/obj_receiveitem_button/obj_receiveitem_button.yy",},
   ],
 }
