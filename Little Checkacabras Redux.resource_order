@@ -17,6 +17,7 @@
     {"name":"Timelines","order":8,"path":"folders/Timelines.yy",},
   ],
   "ResourceOrderSettings": [
+    {"name":"update_obtains","order":1,"path":"scripts/update_obtains/update_obtains.yy",},
     {"name":"rm_dialog","order":2,"path":"rooms/rm_dialog/rm_dialog.yy",},
     {"name":"rm_debug","order":3,"path":"rooms/rm_debug/rm_debug.yy",},
     {"name":"rm_main","order":1,"path":"rooms/rm_main/rm_main.yy",},

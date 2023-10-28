@@ -3,6 +3,9 @@ var slotName = "checksfinder"
 var server = "archipelago.gg"
 var port = 59245
 
+playerSent = 0
+
+item = 0
 
 var _contents = {
 		cmd: "Connect",

@@ -9,38 +9,38 @@ if(async_load[? "size"] > 0){
 		buffer_seek(buff,buffer_seek_start,0)
 	var data = json_parse(response)
 
-if(async_load[? "size"] > 0) {
 
-if struct_exists(data[0], "item")
+for (var i = 0; i < array_length(data); ++i)
 {
-    // Check if it's a struct
-    if is_struct(data[0].item)
-    {
-        // Print all struct members to the log
-        var _names = struct_get_names(data[0]);
-        var _str = "";
-        for (var i = 0; i < array_length(_names); i++;)
-        {
-            _str = _names[i] + ": " + string(struct_get(data[0].item, _names[i]));
-            show_debug_message(_str);
-			ap_show_debug_message(_str)
-        }
-    }
+	if struct_exists(data[i], "cmd")
+{
+show_debug_message(data[i].cmd)
+
+if (data[i].cmd = "ReceivedItems") {
+	if struct_exists(data[i], "items") {
+	for (var ii = 0; ii < array_length(data[i].items); ++ii) {
+			show_debug_message(data[i].items[ii])
+			if (data[i].items[ii].item = int64(80002)) {
+						show_debug_message("You got an item!")
+						playerSent = data[i].items[ii].player
+						show_debug_message(playerSent)
+			}
+			
+		}
+	}
+}
+if (playerSent >= 0) {
+if (data[i].cmd = "Connected") {
+		if struct_exists(data[i], "players") {
+		for (var iii = 0; iii <array_length(data[i].players); ++iii) {
+			show_debug_message(data[i].players[iii])
+				show_debug_message("Item was sent by " + string(data[i].players[iii].alias))	
+			}
+		}
+		}
 }
 
-
- //Check if the struct has myArray variable
-
-     //Check if it's an array
-    //if is_array(data[0].item)
-    //{
-
-    //    ap_show_debug_message(data[0].item);
-    //}
-
-	
-
-	
-//ap_show_debug_message(data[0].item)
 }
+}
+
 

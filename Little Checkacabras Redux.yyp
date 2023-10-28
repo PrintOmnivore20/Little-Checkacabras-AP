@@ -34,6 +34,7 @@
     "IDEVersion": "2023.8.0.98",
   },
   "resources": [
+    {"id":{"name":"update_obtains","path":"scripts/update_obtains/update_obtains.yy",},},
     {"id":{"name":"rm_dialog","path":"rooms/rm_dialog/rm_dialog.yy",},},
     {"id":{"name":"rm_debug","path":"rooms/rm_debug/rm_debug.yy",},},
     {"id":{"name":"rm_main","path":"rooms/rm_main/rm_main.yy",},},
