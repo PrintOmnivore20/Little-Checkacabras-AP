@@ -2,6 +2,17 @@ var APgame = "ChecksFinder"
 var slotName = "checksfinder"
 var server = "archipelago.gg"
 var port = 59245
+wss = network_socket_wss
+ws = network_socket_ws
+
+
+if global.secure = true && global.socket != network_create_socket(wss) {
+		global.socket = network_create_socket(wss)
+}
+if global.secure = false && global.socket != network_create_socket(ws) {
+	global.socket = network_create_socket(ws)	
+}
+
 
 playerSent = 0
 
