@@ -1,7 +1,8 @@
-var APgame = "ChecksFinder"
-var slotName = "checksfinder"
-var server = "archipelago.gg"
-var port = 59245
+///@description Network connection data
+
+var APgame = "ChecksFinder" //Change this to whatever your game is, you shouldn't need to change it more than once.
+
+//Maybe you can optimize this better? it works already for what it needs to be.
 wss = network_socket_wss
 ws = network_socket_ws
 
@@ -18,6 +19,7 @@ playerSent = 0
 
 item = 0
 
+//JSON file contents
 var _contents = {
 		cmd: "Connect",
 		password: "",
@@ -34,18 +36,14 @@ var _contents = {
 	}
 }
 
-var arr = [ _contents]
+var arr = [ _contents] // adds the brackets to the json as needed by AP
 aa = json_stringify(arr)
 
+//Connect to the server, adds the buffers and the json as needed.
 isConnected = network_connect_raw(global.socket, global.server, global.port)
 buffer = buffer_create(string_byte_length(aa), buffer_fixed,1)
 buffer_seek(buffer, buffer_seek_start, 0)
 buffer_write(buffer,buffer_text,aa)
 
-//ab = buffer_read(buffer, buffer_text)
-//ap_show_debug_message("buffer output: " + ab)
+//Sends the json to the server. If you can make this better I applaud you.
 network_send_raw(global.socket, buffer, buffer_tell(buffer),network_send_text)
-
-ap_show_debug_message("json string: " + string(aa))
-ap_show_debug_message("buffer size: " + string(buffer_get_size(buffer)))
-

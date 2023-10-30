@@ -1,41 +1,41 @@
 from BaseClasses import Region, Entrance, Item, Tutorial, ItemClassification
-from .Items import ChecksFinderItem, item_table, required_items
-from .Locations import ChecksFinderAdvancement, advancement_table, exclusion_table
-from .Options import checksfinder_options
+from .Items import LittleCheckybarasItem, item_table, required_items
+from .Locations import LittleCheckybarasAdvancement, advancement_table, exclusion_table
+from .Options import LittleCheckybaras_options
 from .Rules import set_rules, set_completion_rules
 from ..AutoWorld import World, WebWorld
 
 client_version = 7
 
 
-class ChecksFinderWeb(WebWorld):
+class LittleCheckybarasWeb(WebWorld):
     tutorials = [Tutorial(
         "Multiworld Setup Tutorial",
-        "A guide to setting up the Archipelago ChecksFinder software on your computer. This guide covers "
+        "A guide to setting up the Archipelago Little Checkybaras software on your computer. This guide covers "
         "single-player, multiworld, and related software.",
         "English",
-        "checksfinder_en.md",
-        "checksfinder/en",
-        ["Mewlif"]
+        "LittleCheckybaras_en.md",
+        "LittleCheckybaras/en",
+        ["PrintOmnivore20"]
     )]
 
 
-class ChecksFinderWorld(World):
+class LittleCheckybarasWorld(World):
     """
-    ChecksFinder is a game where you avoid mines and find checks inside the board
-    with the mines! You win when you get all your items and beat the board!
+    Little Checkybaras is a virtual pet game made for Archipelago inspired by the Dreamcast VMU game "Chao Adventure" and its sequel.
+    You go on an adventure with a capybara; whom is a delivery system of checks behind the scenes of Archipelago.
     """
-    game: str = "ChecksFinder"
-    option_definitions = checksfinder_options
+    game: str = "LittleCheckybaras"
+    option_definitions = LittleCheckybaras_options
     topology_present = True
-    web = ChecksFinderWeb()
+    web = LittleCheckybarasWeb()
 
     item_name_to_id = {name: data.code for name, data in item_table.items()}
     location_name_to_id = {name: data.id for name, data in advancement_table.items()}
 
     data_version = 4
 
-    def _get_checksfinder_data(self):
+    def _get_LittleCheckybaras_data(self):
         return {
             'world_seed': self.multiworld.per_slot_randoms[self.player].getrandbits(32),
             'seed_name': self.multiworld.seed_name,
@@ -69,7 +69,7 @@ class ChecksFinderWorld(World):
     def create_regions(self):
         menu = Region("Menu", self.player, self.multiworld)
         board = Region("Board", self.player, self.multiworld)
-        board.locations = [ChecksFinderAdvancement(self.player, loc_name, loc_data.id, board)
+        board.locations = [LittleCheckybarasAdvancement(self.player, loc_name, loc_data.id, board)
                            for loc_name, loc_data in advancement_table.items() if loc_data.region == board.name]
 
         connection = Entrance(self.player, "New Board", menu)
@@ -78,8 +78,8 @@ class ChecksFinderWorld(World):
         self.multiworld.regions += [menu, board]
 
     def fill_slot_data(self):
-        slot_data = self._get_checksfinder_data()
-        for option_name in checksfinder_options:
+        slot_data = self._get_LittleCheckybaras_data()
+        for option_name in LittleCheckybaras_options:
             option = getattr(self.multiworld, option_name)[self.player]
             if slot_data.get(option_name, None) is None and type(option.value) in {str, int}:
                 slot_data[option_name] = int(option.value)
@@ -87,7 +87,7 @@ class ChecksFinderWorld(World):
 
     def create_item(self, name: str) -> Item:
         item_data = item_table[name]
-        item = ChecksFinderItem(name,
+        item = LittleCheckybarasItem(name,
                                 ItemClassification.progression if item_data.progression else ItemClassification.filler,
                                 item_data.code, self.player)
         return item
