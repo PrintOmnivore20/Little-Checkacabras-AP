@@ -1,7 +1,7 @@
 global.socket = network_create_socket(network_socket_ws)
 global.name = "checksfinder"
 global.server = "archipelago.gg"
-global.port = 59245
+global.port = 62808
 global.password = ""
 
 global.alertbuttonActive = 0
@@ -11,8 +11,8 @@ global.listbuttonActive = 0
 global.alertnotifActive = 0
 global.chatnotifActive = 0
 
-global.lastItemSent = "DUMMY"
-global.lastPlayerSent = "DUMMY"
+global.lastItemSent = 0
+global.lastPlayerSent = 0
 
 global.notifScrollActive = 0
 
