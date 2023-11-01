@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_alert_button",
+  "name": "obj_dialog_menu",
   "eventList": [],
   "managed": true,
   "overriddenProperties": [],
@@ -25,10 +25,7 @@
   "physicsStartAwake": true,
   "properties": [],
   "solid": false,
-  "spriteId": {
-    "name": "spr_ap_icon",
-    "path": "sprites/spr_ap_icon/spr_ap_icon.yy",
-  },
+  "spriteId": null,
   "spriteMaskId": null,
   "visible": true,
 }

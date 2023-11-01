@@ -23,15 +23,11 @@ if (data[i].cmd = "ReceivedItems") {
 	for (var ii = 0; ii < array_length(data[i].items); ++ii) {
 			//show_debug_message(data[i].items[ii])
 			//Variable used for get_name(), if you want you can change it.
-	playerSent = data[i].items[ii].player
-	//show_debug_message(playerSent)
-	if (playerSent >= 0) {
-update_obtains(data[i].items[ii].item, playerSent)
-}
-	
-			
-					
-			
+			playerSent = data[i].items[ii].player
+			//show_debug_message(playerSent)
+			if (playerSent >= 0) {
+				update_obtains(data[i].items[ii].item, playerSent)
+			}	
 		}
 	}
 }

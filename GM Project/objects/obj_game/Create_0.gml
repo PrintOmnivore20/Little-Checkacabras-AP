@@ -11,7 +11,8 @@ global.listbuttonActive = 0
 global.alertnotifActive = 0
 global.chatnotifActive = 0
 
-global.lastItemSent = 0
+global.lastItemSent = "DUMMY"
+global.lastPlayerSent = "DUMMY"
 
 global.notifScrollActive = 0
 
